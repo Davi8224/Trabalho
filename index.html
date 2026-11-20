@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="modal.css">
+    <link rel="stylesheet" type="text/css" href="records.css">
+    <script src="script.js" defer ></script>
+</head>
+<body>
+    <button id="mudar">
+        <span>☀️</span>
+        <span>🌙</span>
+    </button>
+    <header>
+        Gerenciador de Inventário de loja
+    </header>
+    <main>
+        <button type="button" id="cadastrarProduto">Cadastrar Item</button>
+         <table id="tableProduto" class="records">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+     <div class = "modal" id="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Novo Item</h2>
+                <span class="modal-close" id="modalClose">&#1006;</span>
+            </header>
+            <form id="form" class="modal-form">
+                <input type="text" id="id" class="model-field" placeholder="id do item" required>
+                <input type="text" id="nome" class="model-field" placeholder="Nome do item" required>
+                <input type="text" id="preco" class="model-field" placeholder="Preço do item" required>
+                <input type="text" id="estoque" class="model-field" placeholder="Estoque do item" required>
+            </form>
+            <footer class="modal-footer">
+                <button id="salvar">Salvar</button>
+                <button id="cancelar">Cancelar</button>
+            </footer>
+        </div>
+     </div>
+     <footer>
+        "Eu tentei" -Davi Goes
+     </footer>
+    </main>
+</body>
+</html>
