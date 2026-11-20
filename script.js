@@ -80,8 +80,8 @@ const createRow = (produto, index) => {
         <td>${produto.preco}</td>
         <td>${produto.estoque}</td>
         <td>
-            <button type="button" class="button green" id="edit-${index}">Editar</button>
-            <button type="button" class="button red" id="delete-${index}">Excluir</button>
+            <button type="button" id="edit-${index}">Editar</button>
+            <button type="button" id="delete-${index}">Excluir</button>
         </td>
     `
     document.querySelector('#tableProduto>tbody').appendChild(newRow)
@@ -101,10 +101,10 @@ const closeModal = () => {
 }
 
 const fillFields = (produto) => {
-    document.getElementById('id').value = produto.nome
-    document.getElementById('nome').value = produto.email
-    document.getElementById('preco').value = produto.celular
-    document.getElementById('estoque').value = produto.cidade
+    document.getElementById('id').value = produto.id
+    document.getElementById('nome').value = produto.nome
+    document.getElementById('preco').value = produto.preco
+    document.getElementById('estoque').value = produto.estoque
     document.getElementById('id').dataset.index = produto.index
 }
 
@@ -112,8 +112,9 @@ const editProduto = (index) => {
     const produto = readProduto()[index]
     produto.index = index
     fillFields(produto)
-    document.querySelector(".modal-header>h2").textContent  = `Editando ${produto.nome}`
+    document.querySelector(".modal-header>h2").textContent  = `Editando ${produto.id}`
     openModal()
+
 }
 
 const editDelete = (event) => {
@@ -123,9 +124,11 @@ const editDelete = (event) => {
 
         if (action == 'edit') {
             editProduto(index)
+            deleteProduto(index)
+            updateTable()
         } else {
             const produto = readProduto()[index]
-            const response = confirm(`Deseja realmente excluir o produto ${produto.nome}`)
+            const response = confirm(`Deseja realmente excluir o produto ${produto.id}`)
             if (response) {
                 deleteProduto(index)
                 updateTable()
